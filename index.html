@@ -320,15 +320,38 @@
   ============================ */
   .trust-strip {
     background: var(--charcoal);
-    padding: 28px 0;
+    padding: 40px 0;
     border-bottom: 1px solid rgba(34,197,94,0.1);
   }
-  .trust-inner { display: flex; align-items: center; justify-content: space-between; gap: 24px; flex-wrap: wrap; }
-  .trust-item { display: flex; align-items: center; gap: 10px; color: rgba(255,255,255,0.55); font-size: 13px; letter-spacing: 0.04em; }
-  .trust-icon { width: 32px; height: 32px; border-radius: 50%; background: rgba(22,163,74,0.15); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
-  .trust-icon svg { width: 16px; height: 16px; stroke: var(--green-light); fill: none; }
+  .trust-inner {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0;
+  }
+  .trust-item {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    color: rgba(255,255,255,0.65);
+    font-size: 13px;
+    letter-spacing: 0.04em;
+    padding: 18px 28px;
+    border-right: 1px solid rgba(255,255,255,0.06);
+    transition: background 0.25s;
+  }
+  .trust-item:nth-child(3n) { border-right: none; }
+  .trust-item:nth-child(n+4) { border-top: 1px solid rgba(255,255,255,0.06); }
+  .trust-item:hover { background: rgba(255,255,255,0.03); }
+  .trust-icon {
+    width: 40px; height: 40px; border-radius: 10px;
+    background: rgba(22,163,74,0.15);
+    display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+  }
+  .trust-icon svg { width: 18px; height: 18px; stroke: var(--green-light); fill: none; }
   .trust-icon.blue-icon { background: rgba(2,132,199,0.15); }
   .trust-icon.blue-icon svg { stroke: var(--blue-light); }
+  .trust-item-text { display: flex; flex-direction: column; gap: 2px; }
+  .trust-item-label { font-size: 11px; color: rgba(255,255,255,0.3); letter-spacing: 0.1em; text-transform: uppercase; }
 
   /* ============================
      SERVICES
@@ -865,27 +888,27 @@
     <div class="trust-inner">
       <div class="trust-item">
         <div class="trust-icon"><svg viewBox="0 0 24 24" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z"/></svg></div>
-        Certified Ozone Professionals
+        <div class="trust-item-text"><span>Certified Ozone Professionals</span><span class="trust-item-label">Licensed & Insured</span></div>
       </div>
       <div class="trust-item">
         <div class="trust-icon blue-icon"><svg viewBox="0 0 24 24" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z"/></svg></div>
-        Serving Greater Denver Metro
+        <div class="trust-item-text"><span>Serving Greater Denver Metro</span><span class="trust-item-label">Front Range Coverage</span></div>
       </div>
       <div class="trust-item">
         <div class="trust-icon"><svg viewBox="0 0 24 24" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z"/></svg></div>
-        Same-Day, Next-Day & 24/7 Service
+        <div class="trust-item-text"><span>Available 24/7</span><span class="trust-item-label">Same-Day & Next-Day Service</span></div>
       </div>
       <div class="trust-item">
         <div class="trust-icon blue-icon"><svg viewBox="0 0 24 24" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9.75 3.104v5.714a2.25 2.25 0 01-.659 1.591L5 14.5M9.75 3.104c-.251.023-.501.05-.75.082m.75-.082a24.301 24.301 0 014.5 0m0 0v5.714c0 .597.237 1.17.659 1.591L19.8 15.3M14.25 3.104c.251.023.501.05.75.082M19.8 15.3l-1.57.393A9.065 9.065 0 0112 15a9.065 9.065 0 00-6.23-.693L5 14.5m14.8.8l1.402 1.402c1 1 .3 2.7-1.1 2.7H3.9c-1.4 0-2.1-1.7-1.1-2.7L4.2 15.3"/></svg></div>
-        Chemical-Free Ozone Technology
+        <div class="trust-item-text"><span>Chemical-Free Ozone Technology</span><span class="trust-item-label">No Residue, No Chemicals</span></div>
       </div>
       <div class="trust-item">
         <div class="trust-icon"><svg viewBox="0 0 24 24" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M11.48 3.499a.562.562 0 011.04 0l2.125 5.111a.563.563 0 00.475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 00-.182.557l1.285 5.385a.562.562 0 01-.84.61l-4.725-2.885a.563.563 0 00-.586 0L6.982 20.54a.562.562 0 01-.84-.61l1.285-5.386a.562.562 0 00-.182-.557l-4.204-3.602a.563.563 0 01.321-.988l5.518-.442a.563.563 0 00.475-.345L11.48 3.5z"/></svg></div>
-        5-Star Rated on Google
+        <div class="trust-item-text"><span>5-Star Rated on Google</span><span class="trust-item-label">100% Satisfaction Guaranteed</span></div>
       </div>
       <div class="trust-item">
         <div class="trust-icon blue-icon"><svg viewBox="0 0 24 24" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 12l8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75"/></svg></div>
-        Residential, Commercial & Vehicles
+        <div class="trust-item-text"><span>Residential, Commercial & Vehicles</span><span class="trust-item-label">All Property Types</span></div>
       </div>
     </div>
   </div>
@@ -1249,7 +1272,7 @@
           </div>
           <div class="contact-detail">
             <div class="contact-detail-icon blue"><svg viewBox="0 0 24 24" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75"/></svg></div>
-            <div><div class="contact-detail-label">Email</div><div class="contact-detail-value"><a href="/cdn-cgi/l/email-protection#355a515a475347505045475a46755258545c591b565a58"><span class="__cf_email__" data-cfemail="e7888388958195828297958894a7808a868e8bc984888a">[email&#160;protected]</span></a></div></div>
+            <div><div class="contact-detail-label">Email</div><div class="contact-detail-value"><a href="mailto:odorfreepros@gmail.com">odorfreepros@gmail.com</a></div></div>
           </div>
           <div class="contact-detail">
             <div class="contact-detail-icon"><svg viewBox="0 0 24 24" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M12 21a9.004 9.004 0 008.716-6.747M12 21a9.004 9.004 0 01-8.716-6.747M12 21c2.485 0 4.5-4.03 4.5-9S14.485 3 12 3m0 18c-2.485 0-4.5-4.03-4.5-9S9.515 3 12 3m0 0a8.997 8.997 0 017.843 4.582M12 3a8.997 8.997 0 00-7.843 4.582m15.686 0A11.953 11.953 0 0112 10.5c-2.998 0-5.74-1.1-7.843-2.918m15.686 0A8.959 8.959 0 0121 12c0 .778-.099 1.533-.284 2.253M3 12a8.96 8.96 0 00.284 2.253"/></svg></div>
@@ -1353,7 +1376,7 @@
         <ul>
           <li><a href="#">Available 24/7</a></li>
           <li><a href="#">Call Anytime — Day or Night</a></li>
-          <li><a href="/cdn-cgi/l/email-protection#9ef1faf1ecf8ecfbfbeeecf1eddef9f3fff7f2b0fdf1f3" style="color:var(--blue-light);margin-top:8px;display:block;"><span class="__cf_email__" data-cfemail="f9969d968b9f8b9c9c898b968ab99e94989095d79a9694">[email&#160;protected]</span></a></li>
+          <li><a href="mailto:odorfreepros@gmail.com" style="color:var(--blue-light);margin-top:8px;display:block;">odorfreepros@gmail.com</a></li>
           <li><a href="#contact" style="color:var(--green-light);margin-top:4px;display:block;">Book an Appointment →</a></li>
         </ul>
       </div>
@@ -1369,7 +1392,7 @@
   </div>
 </footer>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+<script>
 window.addEventListener('scroll', () => {
   document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 50);
 });
