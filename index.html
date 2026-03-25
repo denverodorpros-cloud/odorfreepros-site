@@ -4,6 +4,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Odor Free Pros | Professional Ozone Odor Removal Denver</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌿</text></svg>">
+<link rel="apple-touch-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌿</text></svg>">
 <meta name="description" content="Denver's premier ozone odor removal specialists. Professional smoke, pet, mold & marijuana odor elimination for homes, vehicles, rentals & commercial spaces.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
@@ -1247,7 +1249,7 @@
           </div>
           <div class="contact-detail">
             <div class="contact-detail-icon blue"><svg viewBox="0 0 24 24" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75"/></svg></div>
-            <div><div class="contact-detail-label">Email</div><div class="contact-detail-value"><a href="mailto:info@odorfreepros.com">info@odorfreepros.com</a></div></div>
+            <div><div class="contact-detail-label">Email</div><div class="contact-detail-value"><a href="mailto:odorfreepros@gmail.com">odorfreepros@gmail.com</a></div></div>
           </div>
           <div class="contact-detail">
             <div class="contact-detail-icon"><svg viewBox="0 0 24 24" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M12 21a9.004 9.004 0 008.716-6.747M12 21a9.004 9.004 0 01-8.716-6.747M12 21c2.485 0 4.5-4.03 4.5-9S14.485 3 12 3m0 18c-2.485 0-4.5-4.03-4.5-9S9.515 3 12 3m0 0a8.997 8.997 0 017.843 4.582M12 3a8.997 8.997 0 00-7.843 4.582m15.686 0A11.953 11.953 0 0112 10.5c-2.998 0-5.74-1.1-7.843-2.918m15.686 0A8.959 8.959 0 0121 12c0 .778-.099 1.533-.284 2.253M3 12a8.96 8.96 0 00.284 2.253"/></svg></div>
@@ -1351,7 +1353,7 @@
         <ul>
           <li><a href="#">Available 24/7</a></li>
           <li><a href="#">Call Anytime — Day or Night</a></li>
-          <li><a href="mailto:info@odorfreepros.com" style="color:var(--blue-light);margin-top:8px;display:block;">info@odorfreepros.com</a></li>
+          <li><a href="mailto:odorfreepros@gmail.com" style="color:var(--blue-light);margin-top:8px;display:block;">odorfreepros@gmail.com</a></li>
           <li><a href="#contact" style="color:var(--green-light);margin-top:4px;display:block;">Book an Appointment →</a></li>
         </ul>
       </div>
@@ -1424,10 +1426,29 @@ if (container) {
   }
 }
 
-function submitForm(btn) {
-  btn.textContent = '✓ Request Sent — We\'ll be in touch soon!';
-  btn.style.background = 'var(--green-light)';
+async function submitForm(btn) {
+  const form = btn.closest('.contact-form');
+  const firstName = form.querySelector('input[placeholder="John"]').value;
+  const lastName = form.querySelector('input[placeholder="Smith"]').value;
+  const phone = form.querySelector('input[type="tel"]').value;
+  const email = form.querySelector('input[type="email"]').value;
+  const service = form.querySelector('select').value;
+  const message = form.querySelector('textarea').value;
+
+  if (!firstName || !phone || !email) {
+    alert('Please fill in your name, phone, and email before submitting.');
+    return;
+  }
+
+  btn.textContent = 'Sending...';
   btn.disabled = true;
+
+  // Opens email client with all form details pre-filled to odorfreepros@gmail.com
+  const body = `Name: ${firstName} ${lastName}%0APhone: ${phone}%0AEmail: ${email}%0AService: ${service}%0AMessage: ${message}`;
+  window.location.href = `mailto:odorfreepros@gmail.com?subject=New Estimate Request — Odor Free Pros&body=${body}`;
+
+  btn.textContent = "✓ Request Sent — We'll be in touch soon!";
+  btn.style.background = 'var(--green-light)';
 }
 </script>
 </body>
